@@ -8,6 +8,13 @@
     --verde-institucional: #9EBC8A;
     --negro-profundo: #1D1D1B;
     --blanco-puro: #FFFFFF;
+
+    /* Variables modo oscuro */
+    --bg-dark-primary: #1D1D1B;
+    --bg-dark-secondary: #252523;
+    --bg-dark-tertiary: #2A2A28;
+    --text-dark-primary: #F0F0EE;
+    --text-dark-secondary: #B8B8B4;
 }
 
 /* Estilos generales */
@@ -23,8 +30,8 @@ html {
 
 body {
     font-family: 'Inter', system-ui, sans-serif;
-    color: var(--negro-profundo);
-    background-color: var(--blanco-puro);
+    color: var(--text-dark-primary);
+    background-color: var(--bg-dark-primary);
 }
 
 /* Ocultar scrollbar pero mantener funcionalidad */
@@ -298,4 +305,77 @@ header {
         width: 28px;
         height: 28px;
     }
+}
+
+/* ===== MODO OSCURO ===== */
+
+/* Header */
+header {
+    background-color: var(--bg-dark-secondary) !important;
+    border-bottom: 1px solid rgba(158, 188, 138, 0.12);
+}
+
+/* Secciones con fondo blanco */
+.bg-blanco-puro {
+    background-color: var(--bg-dark-primary) !important;
+}
+
+/* Secciones con fondo gris claro (Tailwind) */
+.bg-gray-50 {
+    background-color: var(--bg-dark-secondary) !important;
+}
+
+.bg-gray-100 {
+    background-color: var(--bg-dark-tertiary) !important;
+}
+
+/* Textos oscuros → claros */
+.text-negro-profundo {
+    color: var(--text-dark-primary) !important;
+}
+
+.text-gray-700 {
+    color: var(--text-dark-secondary) !important;
+}
+
+.text-gray-600,
+.text-gray-500,
+.text-gray-400 {
+    color: var(--text-dark-secondary) !important;
+}
+
+/* Menú mobile */
+#mobile-menu {
+    background-color: var(--bg-dark-secondary);
+}
+
+/* Inputs y formularios */
+input[type="text"],
+input[type="email"],
+textarea {
+    background-color: var(--bg-dark-tertiary) !important;
+    color: var(--text-dark-primary) !important;
+    border-color: #3A3A38 !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: #6A6A66 !important;
+}
+
+/* Bordes sutiles */
+.border-gray-100,
+.border-gray-300 {
+    border-color: #3A3A38 !important;
+}
+
+/* Modal */
+#message-box > div {
+    background-color: var(--bg-dark-secondary) !important;
+}
+
+/* Separador */
+.separator {
+    background: linear-gradient(to right, transparent, #3A3A38, transparent);
 }
