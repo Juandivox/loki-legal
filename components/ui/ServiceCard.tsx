@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 import {
   ShieldCheck,
   Scale,
@@ -28,6 +29,18 @@ interface Props {
 
 export default function ServiceCard({ area, index }: Props) {
   const Icon = ICONS[area.icon] ?? ShieldCheck;
+  const cardRef = useRef<HTMLAnchorElement>(null);
+  const [mouse, setMouse] = useState({ x: 50, y: 50, visible: false });
+
+  function handleMouseMove(e: React.MouseEvent<HTMLAnchorElement>) {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    setMouse({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+      visible: true,
+    });
+  }
 
   return (
     <motion.div
@@ -37,9 +50,21 @@ export default function ServiceCard({ area, index }: Props) {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
     >
       <Link
+        ref={cardRef}
         href={`/servicios#${area.id}`}
-        className="group relative flex flex-col gap-5 p-8 bg-black border border-[#3A3A3A] hover:border-[#5B5B5B] transition-all duration-500 h-full"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => setMouse((m) => ({ ...m, visible: false }))}
+        className="group relative flex flex-col gap-5 p-8 bg-black border border-[#3A3A3A] hover:border-[#5B5B5B] transition-all duration-500 h-full overflow-hidden"
       >
+        {/* Mouse-follow light */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 transition-opacity duration-400"
+          style={{
+            opacity: mouse.visible ? 1 : 0,
+            background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%, rgba(166,166,166,0.08) 0%, transparent 80%)`,
+          }}
+        />
         {/* Top accent line */}
         <span className="absolute top-0 left-0 h-px w-0 bg-[#A6A6A6] group-hover:w-full transition-all duration-500" />
 

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { whatsappUrl } from "@/lib/site-config";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -92,14 +93,14 @@ export default function Hero() {
           {...anim(1.1)}
           className="flex flex-col sm:flex-row items-center gap-4 mt-2"
         >
-          <a
+          <PrimaryButton
             href={whatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3.5 bg-white text-black font-sans text-sm tracking-widest uppercase hover:bg-[#A6A6A6] transition-colors duration-300 min-w-[220px] text-center"
+            className="min-w-[220px] text-sm"
           >
             Agenda una conversación
-          </a>
+          </PrimaryButton>
 
           <Link
             href="/servicios"

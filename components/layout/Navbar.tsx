@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { siteConfig, whatsappUrl } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -62,14 +62,25 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <a
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-4 px-5 py-2 border border-[#5B5B5B] text-white text-xs tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300"
+            <Link
+              href="/contacto"
+              className={`group relative ml-4 px-5 py-2 border text-xs tracking-widest uppercase transition-all duration-300 overflow-hidden ${
+                pathname === "/contacto"
+                  ? "border-white bg-white text-black"
+                  : "border-[#5B5B5B] text-white hover:border-white hover:bg-white hover:text-black"
+              }`}
             >
-              WhatsApp
-            </a>
+              {/* Shine sweep */}
+              <span
+                aria-hidden
+                className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-[600ms] pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%)",
+                }}
+              />
+              <span className="relative z-10">Contacto</span>
+            </Link>
           </nav>
 
           <button
@@ -120,14 +131,12 @@ export default function Navbar() {
               </nav>
 
               <div className="mt-10">
-                <a
-                  href={whatsappUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contacto"
                   className="block w-full text-center px-5 py-3 border border-[#5B5B5B] text-white text-xs tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300"
                 >
-                  WhatsApp
-                </a>
+                  Contacto
+                </Link>
               </div>
             </motion.div>
           </>

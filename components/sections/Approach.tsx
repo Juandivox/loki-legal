@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { whatsappUrl } from "@/lib/site-config";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -117,14 +118,14 @@ export default function Approach() {
               Cuéntenos su situación.
             </span>
           </p>
-          <a
+          <PrimaryButton
             href={whatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 px-8 py-3.5 bg-white text-black font-sans text-xs tracking-widest uppercase hover:bg-[#A6A6A6] transition-colors duration-300"
+            className="shrink-0"
           >
             Agenda una conversación
-          </a>
+          </PrimaryButton>
         </motion.div>
       </div>
     </section>

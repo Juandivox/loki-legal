@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle, Mail, ArrowRight } from "lucide-react";
 import { whatsappUrl, siteConfig } from "@/lib/site-config";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -120,14 +121,9 @@ export default function Contact() {
               {siteConfig.address}
             </p>
           </div>
-          <a
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 px-10 py-4 bg-white text-black font-sans text-xs tracking-widest uppercase hover:bg-[#A6A6A6] transition-colors duration-300"
-          >
-            Escribir por WhatsApp
-          </a>
+          <PrimaryButton href="/contacto" as="link" className="shrink-0">
+            Agenda una conversación
+          </PrimaryButton>
         </motion.div>
       </div>
     </section>
