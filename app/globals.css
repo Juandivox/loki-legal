@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* ─── Brand tokens ─── */
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+
+  --color-black:      #000000;
+  --color-gray-dark:  #3A3A3A;
+  --color-gray-mid:   #5B5B5B;
+  --color-gray-light: #A6A6A6;
+  --color-white:      #ffffff;
+}
+
+@theme inline {
+  --color-background:  var(--background);
+  --color-foreground:  var(--foreground);
+
+  --color-brand-black:      #000000;
+  --color-brand-gray-dark:  #3A3A3A;
+  --color-brand-gray-mid:   #5B5B5B;
+  --color-brand-gray-light: #A6A6A6;
+  --color-brand-white:      #ffffff;
+
+  --font-serif: var(--font-bodoni);
+  --font-sans:  var(--font-inter);
+}
+
+/* ─── Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #3A3A3A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5B5B5B;
+}
