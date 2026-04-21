@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { whatsappUrl, siteConfig } from "@/lib/site-config";
+import PageTransition from "@/components/ui/PageTransition";
+import FadeIn from "@/components/ui/FadeIn";
 
 const MAP_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.893895928809!2d-74.07299742415567!3d4.613005595361695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f992718c80c91%3A0x3c8457db43981aa5!2sHotel%20Tequendama!5e0!3m2!1sen!2sco!4v1775840570575!5m2!1sen!2sco";
@@ -55,9 +57,10 @@ const channels = [
 
 export default function ContactoPage() {
   return (
-    <main className="bg-black min-h-screen pt-32 pb-24 px-6 lg:px-12">
+    <PageTransition className="bg-black min-h-screen pt-32 pb-24 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col gap-5 max-w-2xl mb-20">
+        {/* Header */}
+        <FadeIn className="flex flex-col gap-5 max-w-2xl mb-20">
           <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#5B5B5B]">
             Contacto
           </p>
@@ -71,12 +74,13 @@ export default function ContactoPage() {
             el canal que prefiera y le responderemos con la discreción y
             velocidad que su caso merece.
           </p>
-        </div>
+        </FadeIn>
 
+        {/* Channels grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#3A3A3A] mb-px">
-          {channels.map((ch) => {
+          {channels.map((ch, i) => {
             const Icon = ch.icon;
-            const isMapCard = Boolean(ch.mapEmbedSrc);
+            const isMapCard = "mapEmbedSrc" in ch && Boolean(ch.mapEmbedSrc);
             const inner = (
               <div className="bg-black p-10 flex flex-col gap-6 h-full group-hover:bg-[#0a0a0a] transition-colors duration-300">
                 <div className="w-10 h-10 border border-[#3A3A3A] group-hover:border-[#5B5B5B] flex items-center justify-center transition-colors duration-300">
@@ -91,7 +95,7 @@ export default function ContactoPage() {
                     {ch.description}
                   </p>
                 </div>
-                {ch.mapEmbedSrc && (
+                {"mapEmbedSrc" in ch && ch.mapEmbedSrc && (
                   <div className="mt-2 flex flex-col gap-4">
                     <div className="relative overflow-hidden border border-[#3A3A3A] bg-[#050505]">
                       <iframe
@@ -127,45 +131,49 @@ export default function ContactoPage() {
               </div>
             );
 
-            return ch.href && !isMapCard ? (
-              <a
-                key={ch.title}
-                href={ch.href}
-                target={ch.external ? "_blank" : undefined}
-                rel={ch.external ? "noopener noreferrer" : undefined}
-                className="group"
-              >
-                {inner}
-              </a>
-            ) : (
-              <div key={ch.title} className="group">
-                {inner}
-              </div>
+            return (
+              <FadeIn key={ch.title} delay={i * 0.1}>
+                {ch.href && !isMapCard ? (
+                  <a
+                    href={ch.href}
+                    target={ch.external ? "_blank" : undefined}
+                    rel={ch.external ? "noopener noreferrer" : undefined}
+                    className="group block h-full"
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <div className="group h-full">{inner}</div>
+                )}
+              </FadeIn>
             );
           })}
         </div>
 
-        <div className="border border-[#3A3A3A] px-10 py-14 flex flex-col md:flex-row items-center justify-between gap-8 mt-px">
-          <div className="flex flex-col gap-3">
-            <p className="font-serif text-xl md:text-2xl text-white max-w-md leading-snug">
-              La confidencialidad es un principio,{" "}
-              <span className="italic text-[#A6A6A6]">no una opción.</span>
-            </p>
-            <p className="font-sans text-sm text-[#5B5B5B]">
-              Toda la información compartida con DUE &amp; DO está protegida por
-              el secreto profesional.
-            </p>
+        {/* Bottom CTA */}
+        <FadeIn>
+          <div className="border border-[#3A3A3A] px-10 py-14 flex flex-col md:flex-row items-center justify-between gap-8 mt-px">
+            <div className="flex flex-col gap-3">
+              <p className="font-serif text-xl md:text-2xl text-white max-w-md leading-snug">
+                La confidencialidad es un principio,{" "}
+                <span className="italic text-[#A6A6A6]">no una opción.</span>
+              </p>
+              <p className="font-sans text-sm text-[#5B5B5B]">
+                Toda la información compartida con DUE &amp; DO está protegida por
+                el secreto profesional.
+              </p>
+            </div>
+            <a
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 px-10 py-4 bg-white text-black font-sans text-xs tracking-widest uppercase hover:bg-[#A6A6A6] transition-colors duration-300"
+            >
+              Escribir por WhatsApp
+            </a>
           </div>
-          <a
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 px-10 py-4 bg-white text-black font-sans text-xs tracking-widest uppercase hover:bg-[#A6A6A6] transition-colors duration-300"
-          >
-            Escribir por WhatsApp
-          </a>
-        </div>
+        </FadeIn>
       </div>
-    </main>
+    </PageTransition>
   );
 }
