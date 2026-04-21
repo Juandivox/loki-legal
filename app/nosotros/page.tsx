@@ -188,7 +188,7 @@ export default function NosotrosPage() {
                   <div className="h-px w-12 bg-[#3A3A3A]" />
                   <div className="flex flex-col gap-4">
                     {member.detail.map((p, j) => (
-                      <p key={j} className="font-sans text-sm text-[#5B5B5B] leading-relaxed">
+                      <p key={j} className="font-sans text-sm text-[#A6A6A6] leading-relaxed">
                         {p}
                       </p>
                     ))}
@@ -219,7 +219,7 @@ export default function NosotrosPage() {
             <FadeIn key={v.title} delay={i * 0.1}>
               <div className="bg-black p-10 flex flex-col gap-4">
                 <h3 className="font-serif text-xl text-white">{v.title}</h3>
-                <p className="font-sans text-sm text-[#5B5B5B] leading-relaxed">
+                <p className="font-sans text-sm text-[#A6A6A6] leading-relaxed">
                   {v.description}
                 </p>
               </div>
@@ -239,7 +239,7 @@ export default function NosotrosPage() {
               <h3 className="font-serif text-2xl text-white">
                 ¿Trabajamos juntos?
               </h3>
-              <p className="font-sans text-sm text-[#5B5B5B]">
+              <p className="font-sans text-sm text-[#A6A6A6]">
                 Cuéntenos su situación. Sin compromiso.
               </p>
             </div>

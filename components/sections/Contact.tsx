@@ -53,7 +53,7 @@ export default function Contact() {
             </div>
             <div className="flex flex-col gap-2">
               <h3 className="font-serif text-xl text-white">WhatsApp</h3>
-              <p className="font-sans text-sm text-[#5B5B5B] leading-relaxed">
+              <p className="font-sans text-sm text-[#A6A6A6] leading-relaxed">
                 La forma más rápida de contactarnos. Escribanos directamente y
                 le responderemos a la brevedad.
               </p>
@@ -84,7 +84,7 @@ export default function Contact() {
             </div>
             <div className="flex flex-col gap-2">
               <h3 className="font-serif text-xl text-white">Correo electrónico</h3>
-              <p className="font-sans text-sm text-[#5B5B5B] leading-relaxed">
+              <p className="font-sans text-sm text-[#A6A6A6] leading-relaxed">
                 Para consultas formales o documentación.{" "}
                 <span className="text-[#A6A6A6]">{siteConfig.email}</span>
               </p>
@@ -117,7 +117,7 @@ export default function Contact() {
                 Con toda la discreción que su caso merece.
               </span>
             </p>
-            <p className="font-sans text-sm text-[#5B5B5B]">
+            <p className="font-sans text-sm text-[#A6A6A6]">
               {siteConfig.address}
             </p>
           </div>

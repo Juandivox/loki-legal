@@ -24,7 +24,7 @@ export default function Footer() {
                 DUE &amp; DO
               </span>
             </Link>
-            <p className="font-sans text-[#5B5B5B] text-sm leading-relaxed">
+            <p className="font-sans text-[#A6A6A6] text-sm leading-relaxed">
               Diseño legal con visión estratégica. Una firma que combina
               criterio, claridad y presencia contemporánea.
             </p>

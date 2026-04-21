@@ -38,7 +38,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-sans text-sm text-[#5B5B5B] max-w-sm leading-relaxed md:text-right"
+            className="font-sans text-sm text-[#A6A6A6] max-w-sm leading-relaxed md:text-right"
           >
             Cinco áreas de especialización que cubren el espectro completo de
             los riesgos jurídicos del entorno empresarial contemporáneo.

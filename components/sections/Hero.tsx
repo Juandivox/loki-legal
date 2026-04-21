@@ -113,7 +113,7 @@ export default function Hero() {
         {/* Authority quote */}
         <motion.p
           {...fade(1.4)}
-          className="font-serif italic text-[#5B5B5B] text-sm md:text-base mt-6"
+          className="font-serif italic text-[#A6A6A6] text-sm md:text-base mt-6"
         >
           &ldquo;Convertimos complejidad jurídica en experiencias más claras,
           sólidas y confiables.&rdquo;

@@ -91,7 +91,7 @@ export default function ContactoPage() {
                     {ch.title}
                   </p>
                   <p className="font-serif text-lg text-white">{ch.detail}</p>
-                  <p className="font-sans text-sm text-[#5B5B5B] leading-relaxed mt-1">
+                  <p className="font-sans text-sm text-[#A6A6A6] leading-relaxed mt-1">
                     {ch.description}
                   </p>
                 </div>
@@ -158,7 +158,7 @@ export default function ContactoPage() {
                 La confidencialidad es un principio,{" "}
                 <span className="italic text-[#A6A6A6]">no una opción.</span>
               </p>
-              <p className="font-sans text-sm text-[#5B5B5B]">
+              <p className="font-sans text-sm text-[#A6A6A6]">
                 Toda la información compartida con DUE &amp; DO está protegida por
                 el secreto profesional.
               </p>

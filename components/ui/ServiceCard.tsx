@@ -83,7 +83,7 @@ export default function ServiceCard({ area, index }: Props) {
         </h3>
 
         {/* Description */}
-        <p className="font-sans text-sm text-[#5B5B5B] leading-relaxed group-hover:text-[#A6A6A6] transition-colors duration-300 flex-1">
+        <p className="font-sans text-sm text-[#A6A6A6] leading-relaxed group-hover:text-white transition-colors duration-300 flex-1">
           {area.shortDescription}
         </p>
 

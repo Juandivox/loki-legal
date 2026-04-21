@@ -67,7 +67,7 @@ export default function Approach() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-sans text-sm text-[#5B5B5B] max-w-xs leading-relaxed md:text-right"
+            className="font-sans text-sm text-[#A6A6A6] max-w-xs leading-relaxed md:text-right"
           >
             Un proceso claro, comunicación constante y criterio profesional en
             cada etapa.
@@ -96,7 +96,7 @@ export default function Approach() {
               {/* Content */}
               <div className="flex flex-col gap-3">
                 <h3 className="font-serif text-xl text-white">{step.title}</h3>
-                <p className="font-sans text-sm text-[#5B5B5B] leading-relaxed">
+                <p className="font-sans text-sm text-[#A6A6A6] leading-relaxed">
                   {step.description}
                 </p>
               </div>

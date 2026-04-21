@@ -25,19 +25,20 @@ export default function About() {
           className="relative flex items-center justify-center"
         >
           {/* Decorative border frame */}
-          <div className="relative w-full max-w-md aspect-square border border-[#3A3A3A] flex items-center justify-center">
+          <div className="group relative w-full max-w-md aspect-square border border-[#3A3A3A] overflow-hidden">
             {/* Corner accents */}
-            <span className="absolute top-4 left-4 w-8 h-8 border-t border-l border-[#5B5B5B]" />
-            <span className="absolute top-4 right-4 w-8 h-8 border-t border-r border-[#5B5B5B]" />
-            <span className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-[#5B5B5B]" />
-            <span className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-[#5B5B5B]" />
+            <span className="absolute top-4 left-4 w-8 h-8 border-t border-l border-[#5B5B5B] z-10" />
+            <span className="absolute top-4 right-4 w-8 h-8 border-t border-r border-[#5B5B5B] z-10" />
+            <span className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-[#5B5B5B] z-10" />
+            <span className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-[#5B5B5B] z-10" />
 
             <Image
-              src="/brand/icono.png"
-              alt="DUE & DO"
-              width={560}
-              height={560}
-              className="object-contain opacity-80 p-4"
+              src="/bogota-hd.png"
+              alt="Bogotá"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={100}
+              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
             />
           </div>
         </motion.div>
