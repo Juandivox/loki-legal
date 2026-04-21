@@ -43,17 +43,17 @@ export default function Hero() {
       <motion.div
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
         initial={{ opacity: 0, scale: 1.08 }}
-        animate={{ opacity: 0.04, scale: 1 }}
+        animate={{ opacity: 0.15, scale: 1 }}
         transition={{ duration: 2.5, ease: "easeOut" }}
+        aria-hidden
       >
         <Image
           src="/brand/logo.png"
           alt=""
           width={700}
           height={700}
-          className="w-[60vw] max-w-2xl object-contain"
+          className="w-[55vw] max-w-3xl object-contain"
           priority
-          aria-hidden
         />
       </motion.div>
 
