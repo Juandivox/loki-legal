@@ -3,12 +3,59 @@ import Image from "next/image";
 import { whatsappUrl } from "@/lib/site-config";
 import PageTransition from "@/components/ui/PageTransition";
 import FadeIn from "@/components/ui/FadeIn";
+import GrayscaleReveal from "@/components/ui/GrayscaleReveal";
 
 export const metadata: Metadata = {
-  title: "Nosotros — DUE & DO",
+  title: "Equipo — DUE & DO",
   description:
-    "Conoce la firma DUE & DO: nuestra historia, valores y el equipo detrás de cada mandato.",
+    "Conoce el equipo de DUE & DO: abogados especializados en derecho corporativo, tributario, penal y financiero.",
 };
+
+const team = [
+  {
+    slug: "nicolas-calderon",
+    name: "Nicolás Calderón Grisales",
+    position: "Socio Fundador",
+    photo: "/team/nicolas.jpg",
+    bio: "Abogado de la Universidad Libre con especialización en Derecho Tributario de la Universidad Externado de Colombia. Más de 5 años de experiencia asesorando en derecho laboral, civil, tributario y societario.",
+    detail: [
+      "Abogado de la Universidad Libre con especialización en Derecho Tributario de la Universidad Externado de Colombia. Cuenta con más de 5 años de experiencia asesorando en derecho laboral y seguridad social, derecho civil, derecho tributario y derecho societario.",
+      "Su formación especializada le permite abordar con solvencia procesos de planeación, cumplimiento y resolución de conflictos tributarios, así como asesorías integrales en el ámbito corporativo y laboral.",
+    ],
+  },
+  {
+    slug: "johan-galindo",
+    name: "Johan Manuel Galindo Toloza",
+    position: "Socio Fundador",
+    photo: "/team/johan.jpg",
+    bio: "Abogado de la Universidad Libre con especialización en Derecho Administrativo Laboral. Más de 5 años de experiencia en litigio laboral, civil, comercial y societario.",
+    detail: [
+      "Abogado de la Universidad Libre con especialización en Derecho Administrativo Laboral. Más de 5 años de experiencia en derecho laboral y seguridad social, conciliación y negociación de obligaciones, y litigio en materia laboral, civil, comercial y societaria.",
+      "Se destaca por su habilidad para generar acuerdos que favorecen la solución pacífica de conflictos, su capacidad de análisis jurídico integral y su compromiso con la protección de los intereses de sus clientes.",
+    ],
+  },
+  {
+    slug: "ivan-pardo",
+    name: "Ivan Darío Pardo Clavijo",
+    position: "Abogado",
+    photo: "/team/ivan.jpg",
+    bio: "Abogado de la Universidad Santo Tomás, especialista en Derecho Financiero y Criptoactivos de la Universidad del Rosario.",
+    detail: [
+      "Abogado de la Universidad Santo Tomás, especialista en Derecho Financiero y Criptoactivos de la Universidad del Rosario.",
+    ],
+  },
+  {
+    slug: "jorge-cely",
+    name: "Jorge Enrique Cely León",
+    position: "Socio — Derecho Económico",
+    photo: "/team/jorge.png",
+    bio: "Abogado y Magíster en Derecho Económico de la Universidad Externado de Colombia. Especialista en regulación económica, contratos estatales y derecho sancionador.",
+    detail: [
+      "Abogado y Magíster en Derecho Económico de la Universidad Externado de Colombia, con énfasis en Regulación Económica y Análisis Económico del Derecho. Su práctica se ha centrado en la estructuración legal de proyectos, gestión de contratos estatales y aplicación de marcos normativos de intervención económica y derecho sancionador.",
+      "En el sector público ejerció como Coordinador del Grupo de Supervisión de Cámaras de Comercio en la Superintendencia de Sociedades, y prestó asesoría directa en los despachos del Superintendente de Sociedades y del Viceministro de Transporte. Actualmente es Socio del área de Derecho Económico y docente.",
+    ],
+  },
+];
 
 const values = [
   {
@@ -40,19 +87,16 @@ export default function NosotrosPage() {
       <section className="px-6 lg:px-12 max-w-7xl mx-auto mb-24">
         <FadeIn className="flex flex-col gap-6 max-w-3xl">
           <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#5B5B5B]">
-            La firma
+            El equipo
           </p>
           <h1 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-white">
-            Una firma de abogados
+            Las personas detrás
             <br />
-            <span className="italic text-[#A6A6A6]">
-              construida con propósito.
-            </span>
+            <span className="italic text-[#A6A6A6]">de cada mandato.</span>
           </h1>
           <p className="font-sans text-[#A6A6A6] text-base leading-relaxed max-w-xl mt-2">
-            DUE &amp; DO nació de la convicción de que el derecho corporativo
-            moderno exige algo más que conocimiento técnico: exige visión,
-            cercanía y una comprensión genuina del mundo empresarial.
+            Un equipo de abogados especializados que combina rigor técnico,
+            visión estratégica y compromiso genuino con cada cliente.
           </p>
         </FadeIn>
       </section>
@@ -60,44 +104,100 @@ export default function NosotrosPage() {
       {/* Divider */}
       <div className="border-t border-[#3A3A3A]" />
 
-      {/* Manifiesto */}
+      {/* Team grid */}
       <section className="px-6 lg:px-12 max-w-7xl mx-auto py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <FadeIn className="flex items-center justify-center">
-            <div className="relative border border-[#3A3A3A] p-12 w-full max-w-sm aspect-square flex items-center justify-center">
-              <span className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[#5B5B5B]" />
-              <span className="absolute top-4 right-4 w-6 h-6 border-t border-r border-[#5B5B5B]" />
-              <span className="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-[#5B5B5B]" />
-              <span className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[#5B5B5B]" />
-              <Image
-                src="/brand/logo.png"
-                alt="DUE & DO"
-                width={200}
-                height={200}
-                className="object-contain opacity-90"
-              />
-            </div>
-          </FadeIn>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#3A3A3A]">
+          {team.map((member, i) => (
+            <FadeIn key={member.slug} delay={i * 0.1}>
+              <a
+                href={`#${member.slug}`}
+                className="group bg-black flex flex-col cursor-pointer"
+              >
+                {/* Photo */}
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#0a0a0a]">
+                  {member.photo ? (
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-serif text-[#3A3A3A] text-sm tracking-widest uppercase">
+                        Próximamente
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-          <FadeIn delay={0.15} className="flex flex-col gap-6">
-            <blockquote className="font-serif text-xl md:text-2xl text-white leading-relaxed">
-              &ldquo;Convertimos complejidad jurídica en experiencias más
-              claras, sólidas y confiables.&rdquo;
-            </blockquote>
-            <div className="h-px w-12 bg-[#3A3A3A]" />
-            <p className="font-sans text-sm text-[#5B5B5B] leading-relaxed">
-              Cada cliente que llega a DUE &amp; DO trae consigo un reto único.
-              Nuestro trabajo comienza por escuchar, comprender el contexto de
-              negocio y solo entonces construir la estrategia jurídica que
-              realmente sirva a sus objetivos.
-            </p>
-            <p className="font-sans text-sm text-[#5B5B5B] leading-relaxed">
-              Creemos en la abogacía como herramienta de construcción, no solo
-              de defensa. Por eso combinamos rigor técnico con visión
-              estratégica, y nunca sacrificamos la claridad por el formalismo.
-            </p>
-          </FadeIn>
+                {/* Info */}
+                <div className="p-6 flex flex-col gap-2 border-t border-[#3A3A3A] group-hover:border-[#5B5B5B] transition-colors duration-300">
+                  <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#5B5B5B]">
+                    {member.position}
+                  </p>
+                  <h3 className="font-serif text-lg text-white leading-snug group-hover:text-[#A6A6A6] transition-colors duration-300">
+                    {member.name}
+                  </h3>
+                </div>
+              </a>
+            </FadeIn>
+          ))}
         </div>
+      </section>
+
+      {/* Divider */}
+      <div className="border-t border-[#3A3A3A]" />
+
+      {/* Detail — alternating layout */}
+      <section className="px-6 lg:px-12 max-w-7xl mx-auto py-24 flex flex-col gap-0">
+        {team.map((member, i) => {
+          const imageLeft = i % 2 === 0;
+          return (
+            <FadeIn key={member.slug}>
+              <div
+                id={member.slug}
+                className={`group grid grid-cols-1 md:grid-cols-2 border border-[#3A3A3A] scroll-mt-24 ${i > 0 ? "-mt-px" : ""}`}
+              >
+                {/* Image */}
+                <div className={`relative aspect-[4/5] overflow-hidden bg-[#0a0a0a] ${imageLeft ? "md:order-1" : "md:order-2"}`}>
+                  {member.photo && (
+                    <GrayscaleReveal>
+                      <Image
+                        src={member.photo}
+                        alt={member.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover object-top"
+                      />
+                    </GrayscaleReveal>
+                  )}
+                </div>
+
+                {/* Text */}
+                <div className={`flex flex-col justify-center gap-6 p-10 lg:p-16 ${imageLeft ? "md:order-2" : "md:order-1"}`}>
+                  <div className="flex flex-col gap-1">
+                    <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#5B5B5B]">
+                      {member.position}
+                    </p>
+                    <h3 className="font-serif text-2xl md:text-3xl text-white leading-snug">
+                      {member.name}
+                    </h3>
+                  </div>
+                  <div className="h-px w-12 bg-[#3A3A3A]" />
+                  <div className="flex flex-col gap-4">
+                    {member.detail.map((p, j) => (
+                      <p key={j} className="font-sans text-sm text-[#5B5B5B] leading-relaxed">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          );
+        })}
       </section>
 
       {/* Divider */}

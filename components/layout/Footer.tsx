@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
 export default function Footer() {
@@ -99,26 +98,24 @@ export default function Footer() {
           <p className="font-sans text-xs text-[#5B5B5B]">
             © {year} DUE &amp; DO. Todos los derechos reservados.
           </p>
-
-          {/* Social */}
-          <div className="flex items-center gap-6">
-            <a
-              href={siteConfig.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-xs text-[#5B5B5B] hover:text-white transition-colors flex items-center gap-1 tracking-wider uppercase"
-            >
-              LinkedIn <ExternalLink size={12} />
-            </a>
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-xs text-[#5B5B5B] hover:text-white transition-colors flex items-center gap-1 tracking-wider uppercase"
-            >
-              Instagram <ExternalLink size={12} />
-            </a>
-          </div>
+          <a
+            href="https://miraylabs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2 transition-all duration-300"
+          >
+            <span className="font-sans text-[10px] text-[#A6A6A6] group-hover:text-white tracking-widest uppercase transition-colors duration-300">
+              Powered by
+            </span>
+            <Image
+              src="/miraylabs-logo.webp"
+              alt="MirayLabs"
+              width={40}
+              height={40}
+              placeholder="empty"
+              className="object-contain invert brightness-75 group-hover:brightness-200 transition-all duration-300"
+            />
+          </a>
         </div>
       </div>
     </footer>
