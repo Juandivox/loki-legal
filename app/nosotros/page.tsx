@@ -4,6 +4,7 @@ import { whatsappUrl } from "@/lib/site-config";
 import PageTransition from "@/components/ui/PageTransition";
 import FadeIn from "@/components/ui/FadeIn";
 import GrayscaleReveal from "@/components/ui/GrayscaleReveal";
+import TeamHeroSection from "@/components/ui/TeamHeroSection";
 
 export const metadata: Metadata = {
   title: "Equipo — DUE & DO",
@@ -83,69 +84,7 @@ const values = [
 export default function NosotrosPage() {
   return (
     <PageTransition className="bg-black min-h-screen pt-32 pb-24">
-      {/* Hero */}
-      <section className="px-6 lg:px-12 max-w-7xl mx-auto mb-24">
-        <FadeIn className="flex flex-col gap-6 max-w-3xl">
-          <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#5B5B5B]">
-            El equipo
-          </p>
-          <h1 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-white">
-            Las personas detrás
-            <br />
-            <span className="italic text-[#A6A6A6]">de cada mandato.</span>
-          </h1>
-          <p className="font-sans text-[#A6A6A6] text-base leading-relaxed max-w-xl mt-2">
-            Un equipo de abogados especializados que combina rigor técnico,
-            visión estratégica y compromiso genuino con cada cliente.
-          </p>
-        </FadeIn>
-      </section>
-
-      {/* Divider */}
-      <div className="border-t border-[#3A3A3A]" />
-
-      {/* Team grid */}
-      <section className="px-6 lg:px-12 max-w-7xl mx-auto py-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#3A3A3A]">
-          {team.map((member, i) => (
-            <FadeIn key={member.slug} delay={i * 0.1}>
-              <a
-                href={`#${member.slug}`}
-                className="group bg-black flex flex-col cursor-pointer"
-              >
-                {/* Photo */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#0a0a0a]">
-                  {member.photo ? (
-                    <Image
-                      src={member.photo}
-                      alt={member.name}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-serif text-[#3A3A3A] text-sm tracking-widest uppercase">
-                        Próximamente
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Info */}
-                <div className="p-6 flex flex-col gap-2 border-t border-[#3A3A3A] group-hover:border-[#5B5B5B] transition-colors duration-300">
-                  <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#5B5B5B]">
-                    {member.position}
-                  </p>
-                  <h3 className="font-serif text-lg text-white leading-snug group-hover:text-[#A6A6A6] transition-colors duration-300">
-                    {member.name}
-                  </h3>
-                </div>
-              </a>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
+      <TeamHeroSection team={team} />
 
       {/* Divider */}
       <div className="border-t border-[#3A3A3A]" />
