@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://dueydo.co";
+const BASE_URL = "https://lokilegal.com";
 const LAST_MODIFIED = new Date("2026-04-21");
 
 export const dynamic = "force-static";

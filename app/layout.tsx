@@ -16,7 +16,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const BASE_URL = "https://dueydo.co";
+const BASE_URL = "https://lokilegal.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
