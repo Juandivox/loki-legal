@@ -91,6 +91,17 @@ export default function NosotrosPage() {
 
       {/* Detail — alternating layout */}
       <section className="px-6 lg:px-12 max-w-7xl mx-auto py-24 flex flex-col gap-0">
+        <FadeIn className="flex flex-col gap-4 mb-16">
+          <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#5B5B5B]">
+            Quiénes somos
+          </p>
+          <h2 className="font-serif text-[clamp(1.8rem,3vw,2.8rem)] text-white">
+            Cada abogado,
+            <br />
+            <span className="italic text-[#A6A6A6]">una historia de rigor.</span>
+          </h2>
+        </FadeIn>
+
         {team.map((member, i) => {
           const imageLeft = i % 2 === 0;
           return (

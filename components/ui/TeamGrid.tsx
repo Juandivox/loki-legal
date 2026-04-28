@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
+import { useLenis } from "@/components/layout/SmoothScroll";
 
 interface TeamMember {
   slug: string;
@@ -13,18 +14,29 @@ interface TeamMember {
 
 export default function TeamGrid({ team }: { team: TeamMember[] }) {
   const [loaded, setLoaded] = useState<Record<string, boolean>>({});
+  const lenis = useLenis();
 
   const handleLoad = (slug: string) => {
     setLoaded((prev) => ({ ...prev, [slug]: true }));
+  };
+
+  const scrollToMember = (slug: string) => {
+    const target = document.getElementById(slug);
+    if (!target) return;
+    if (lenis) {
+      lenis.scrollTo(target, { offset: -96, duration: 1.6 });
+    } else {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#3A3A3A]">
       {team.map((member, i) => (
         <FadeIn key={member.slug} delay={i * 0.1}>
-          <a
-            href={`#${member.slug}`}
-            className="group bg-black flex flex-col cursor-pointer"
+          <button
+            onClick={() => scrollToMember(member.slug)}
+            className="group bg-black flex flex-col cursor-pointer w-full text-left"
           >
             {/* Photo */}
             <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#0a0a0a]">
@@ -63,7 +75,7 @@ export default function TeamGrid({ team }: { team: TeamMember[] }) {
                 {member.name}
               </h3>
             </div>
-          </a>
+          </button>
         </FadeIn>
       ))}
     </div>
