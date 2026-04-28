@@ -3,6 +3,7 @@ import { Bodoni_Moda, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -76,9 +77,11 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${bodoni.variable} ${inter.variable}`}>
       <body className="antialiased bg-black text-white">
-        <Navbar />
-        {children}
-        <Footer />
+        <SmoothScroll>
+          <Navbar />
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
