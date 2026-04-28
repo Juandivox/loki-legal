@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import TeamGrid from "@/components/ui/TeamGrid";
+import ShinyText from "@/components/ui/ShinyText";
 
 interface TeamMember {
   slug: string;
@@ -39,7 +40,15 @@ export default function TeamHeroSection({ team }: { team: TeamMember[] }) {
           <h1 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.05] text-white">
             Las personas detrás
             <br />
-            <span className="italic text-[#A6A6A6]">de cada mandato.</span>
+            <ShinyText
+                text="de cada mandato."
+                color="#A6A6A6"
+                shineColor="#ffffff"
+                speed={3}
+                delay={1}
+                spread={120}
+                className="italic"
+              />
           </h1>
           <p className="font-sans text-[#A6A6A6] text-base leading-relaxed max-w-xl mt-2">
             Un equipo de abogados especializados que combina rigor técnico,
