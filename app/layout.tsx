@@ -22,9 +22,9 @@ const BASE_URL = "https://lokilegal.com";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   icons: {
-    icon: [{ url: "/brand/icono.png", type: "image/png" }],
-    apple: [{ url: "/brand/icono.png", type: "image/png" }],
-    shortcut: ["/brand/icono.png"],
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/icon.png", type: "image/png" }],
+    shortcut: ["/icon.png"],
   },
   title: {
     default: "DUE & DO — Firma de Abogados",
